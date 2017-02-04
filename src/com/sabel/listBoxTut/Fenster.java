@@ -28,7 +28,18 @@ public class Fenster extends JFrame {
         jPanelWest = new JPanel();
         jPanelEast = new JPanel();
         jPanelSouth = new JPanel();
+        c = getContentPane();
         autoDatenbank = new AutoDatenbank();
         autoDatenbank.generateTestdaten(33);
+        jList = new JList(autoDatenbank.getAutoObjekte());
+        jScrollPane = new JScrollPane(jList);
+        jScrollPane.setPreferredSize(new Dimension(250, 250));
+        c.add(jPanelCenter);
+        jPanelCenter.add(jScrollPane);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Autoverwaltung");
+        pack();
+        setVisible(true);
+
     }
 }
