@@ -29,8 +29,9 @@ public class AutoDatenbank {
     public Auto removeAuto(Auto auto) {
         Iterator<Auto> iterator = autos.iterator();
         while (iterator.hasNext()) {
-            if (iterator.next().getFahrgestellnummer().equals(auto.getFahrgestellnummer())) {
-                Auto x = (Auto) iterator;
+            Auto x =  iterator.next();
+            if (x.getFahrgestellnummer().equals(auto.getFahrgestellnummer())) {
+
                 iterator.remove();
                 return x;
             }
