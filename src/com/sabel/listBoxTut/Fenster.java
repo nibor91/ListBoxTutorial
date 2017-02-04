@@ -27,7 +27,6 @@ public class Fenster extends JFrame {
     private JList jList;
     private JScrollPane jScrollPane;
     private AutoDatenbank autoDatenbank;
-    private DefaultListModel<Auto> autoListModel;
     private JButton jbtnDelet;
     private MeinActionListener meinActionListener;
 
@@ -36,7 +35,7 @@ public class Fenster extends JFrame {
         initComponents();
         setTitle("Autoverwaltung");
         zusammensetzen();
-        modelBefuellen();
+
         adActionlistener();
         jScrollPane.setPreferredSize(new Dimension(250, 250));
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -58,24 +57,22 @@ public class Fenster extends JFrame {
         jPanelEast.setLayout(new BoxLayout(jPanelEast, BoxLayout.Y_AXIS));
         jPanelSouth = new JPanel();
         header = new JLabel(" ");
-        autoListModel = new DefaultListModel<>();
         c = getContentPane();
         autoDatenbank = new AutoDatenbank();
-        jList = new JList(autoListModel);
+        modelBefuellen();
+        jList = new JList(autoDatenbank.getAutoObjekte());
         jScrollPane = new JScrollPane(jList);
     }
     private void modelBefuellen() {
         autoDatenbank.generateTestdaten(33);
-        for (Auto a : autoDatenbank.getAutoListe()) {
-            autoListModel.addElement(a);
-        }
+
     }
     private void adActionlistener() {
         jbtnDelet.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (jList.getSelectedIndex() > -1)
-                    autoDatenbank.removeAuto(autoListModel.remove(jList.getSelectedIndex()));
+                    autoDatenbank.removeAuto((Auto) jList.getSelectedValue());
             }
         });
         jList.addListSelectionListener(new ListSelectionListener() {
@@ -83,7 +80,7 @@ public class Fenster extends JFrame {
             public void valueChanged(ListSelectionEvent e) {
                 if (jList.getSelectedIndex() > -1) {
                     System.out.println(jList.getSelectedIndex());
-                    header.setText("Kennzeichen: " + autoListModel.get(jList.getSelectedIndex()).getKennzeichen() + "Fahrgestellnummer: " + autoListModel.get(jList.getSelectedIndex()).getFahrgestellnummer());
+                    header.setText("Kennzeichen: " + ((Auto)(jList.getSelectedValue())).getKennzeichen() + "Fahrgestellnummer: " + ((Auto)(jList.getSelectedValue())).getFahrgestellnummer());
                     pack();
                 }
             }
