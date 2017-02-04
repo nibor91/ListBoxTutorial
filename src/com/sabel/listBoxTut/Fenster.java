@@ -37,7 +37,7 @@ public class Fenster extends JFrame {
         zusammensetzen();
 
         adActionlistener();
-        jScrollPane.setPreferredSize(new Dimension(250, 250));
+        jScrollPane.setPreferredSize(new Dimension(150, 250));
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         pack();
         setVisible(true);
@@ -108,10 +108,13 @@ public class Fenster extends JFrame {
         @Override
         public void itemStateChanged(ItemEvent e) {
             if (jRadioButtons[0].isSelected()) {
+                jList.setVisibleRowCount(jList.getComponentCount()-1);
                 jList.setLayoutOrientation(JList.VERTICAL_WRAP);
             } else if (jRadioButtons[1].isSelected()) {
+                jList.setVisibleRowCount(jList.getComponentCount()-1);
                 jList.setLayoutOrientation(JList.HORIZONTAL_WRAP);
             } else if (jRadioButtons[2].isSelected()) {
+                jList.setVisibleRowCount(jList.getComponentCount()-1);
                 jList.setLayoutOrientation(JList.VERTICAL);
             }
 
