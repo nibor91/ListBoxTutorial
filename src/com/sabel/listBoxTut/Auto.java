@@ -9,9 +9,33 @@ public class Auto {
     private int punkteInFlenzburg;
     private int ps;
 
+    public Auto( String fahrgestellnummer,String kennzeichen, int punkteInFlenzburg, int ps) {
+        this.kennzeichen = kennzeichen;
+        this.fahrgestellnummer = fahrgestellnummer;
+        this.punkteInFlenzburg = punkteInFlenzburg;
+        this.ps = ps;
+    }
+
+    public Auto( String fahrgestellnummer,String kennzeichen, int ps) {
+        this.kennzeichen = kennzeichen;
+        this.fahrgestellnummer = fahrgestellnummer;
+        this.ps = ps;
+    }
+
+    public Auto( String fahrgestellnummer,String kennzeichen) {
+
+        this.kennzeichen = kennzeichen;
+        this.fahrgestellnummer = fahrgestellnummer;
+    }
+
+    public Auto(String fahrgestellnummer) {
+
+        this.fahrgestellnummer = fahrgestellnummer;
+    }
+
     @Override
     public String toString() {
-        return  kennzeichen ;
+        return kennzeichen;
     }
 
     public String getKennzeichen() {

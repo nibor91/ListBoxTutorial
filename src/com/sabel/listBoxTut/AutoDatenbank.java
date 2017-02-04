@@ -37,4 +37,10 @@ public class AutoDatenbank {
         }
         return null;
     }
+
+    public void generateTestdaten(int anzahl) {
+        for (int i = 0 ; i < anzahl ; i++) {
+            autos.add(new Auto("" + i + 2 * i + 24 + i * i + "-" + i,"M:UC-"+i));
+        }
+    }
 }
