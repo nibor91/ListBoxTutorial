@@ -38,11 +38,12 @@ public class Fenster extends JFrame {
         zusammensetzen();
         modelBefuellen();
         adActionlistener();
-        jScrollPane.setPreferredSize(new Dimension(250, 250));
+        jScrollPane.setPreferredSize(new Dimension(150, 250));
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         pack();
         setVisible(true);
     }
+
     private void initComponents() {
         jRadioButtons = new JRadioButton[3];
         jRadioButtons[2] = new JRadioButton("Vertical");
@@ -64,12 +65,14 @@ public class Fenster extends JFrame {
         jList = new JList(autoListModel);
         jScrollPane = new JScrollPane(jList);
     }
+
     private void modelBefuellen() {
         autoDatenbank.generateTestdaten(33);
         for (Auto a : autoDatenbank.getAutoListe()) {
             autoListModel.addElement(a);
         }
     }
+
     private void adActionlistener() {
         jbtnDelet.addActionListener(new ActionListener() {
             @Override
@@ -92,6 +95,7 @@ public class Fenster extends JFrame {
             j.addItemListener(meinActionListener);
         }
     }
+
     private void zusammensetzen() {
         buttonGroup.add(jRadioButtons[0]);
         buttonGroup.add(jRadioButtons[1]);
@@ -107,14 +111,18 @@ public class Fenster extends JFrame {
         c.add(jPanelNorth, BorderLayout.NORTH);
         c.add(jPanelSouth, BorderLayout.SOUTH);
     }
+
     private class MeinActionListener implements ItemListener {
         @Override
         public void itemStateChanged(ItemEvent e) {
             if (jRadioButtons[0].isSelected()) {
+                jList.setVisibleRowCount(autoListModel.size() / 3);
                 jList.setLayoutOrientation(JList.VERTICAL_WRAP);
             } else if (jRadioButtons[1].isSelected()) {
+                jList.setVisibleRowCount(autoListModel.size() / 3);
                 jList.setLayoutOrientation(JList.HORIZONTAL_WRAP);
             } else if (jRadioButtons[2].isSelected()) {
+                jList.setVisibleRowCount(autoListModel.size() / 3);
                 jList.setLayoutOrientation(JList.VERTICAL);
             }
 
