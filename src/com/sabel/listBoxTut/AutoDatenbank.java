@@ -12,7 +12,6 @@ public class AutoDatenbank {
 
     public AutoDatenbank() {
         autos = new ArrayList<Auto>();
-
     }
 
     public Object[] getAutoObjekte() {
@@ -34,7 +33,6 @@ public class AutoDatenbank {
                 Auto x = (Auto) iterator;
                 iterator.remove();
                 return x;
-
             }
         }
         return null;
