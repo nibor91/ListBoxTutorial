@@ -42,6 +42,7 @@ public class Fenster extends JFrame {
         pack();
         setVisible(true);
     }
+
     private void initComponents() {
         jRadioButtons = new JRadioButton[3];
         jRadioButtons[2] = new JRadioButton("Vertical");
@@ -63,10 +64,11 @@ public class Fenster extends JFrame {
         jList = new JList(autoDatenbank.getAutoObjekte());
         jScrollPane = new JScrollPane(jList);
     }
+
     private void modelBefuellen() {
         autoDatenbank.generateTestdaten(33);
-
     }
+
     private void adActionlistener() {
         jbtnDelet.addActionListener(new ActionListener() {
             @Override
@@ -80,7 +82,7 @@ public class Fenster extends JFrame {
             public void valueChanged(ListSelectionEvent e) {
                 if (jList.getSelectedIndex() > -1) {
                     System.out.println(jList.getSelectedIndex());
-                    header.setText("Kennzeichen: " + ((Auto)(jList.getSelectedValue())).getKennzeichen() + "Fahrgestellnummer: " + ((Auto)(jList.getSelectedValue())).getFahrgestellnummer());
+                    header.setText("Kennzeichen: " + ((Auto) (jList.getSelectedValue())).getKennzeichen() + "Fahrgestellnummer: " + ((Auto) (jList.getSelectedValue())).getFahrgestellnummer());
                     pack();
                 }
             }
@@ -89,6 +91,7 @@ public class Fenster extends JFrame {
             j.addItemListener(meinActionListener);
         }
     }
+
     private void zusammensetzen() {
         buttonGroup.add(jRadioButtons[0]);
         buttonGroup.add(jRadioButtons[1]);
@@ -104,17 +107,18 @@ public class Fenster extends JFrame {
         c.add(jPanelNorth, BorderLayout.NORTH);
         c.add(jPanelSouth, BorderLayout.SOUTH);
     }
+
     private class MeinActionListener implements ItemListener {
         @Override
         public void itemStateChanged(ItemEvent e) {
             if (jRadioButtons[0].isSelected()) {
-                jList.setVisibleRowCount(jList.getComponentCount()-1);
+                jList.setVisibleRowCount(jList.getComponentCount() - 1);
                 jList.setLayoutOrientation(JList.VERTICAL_WRAP);
             } else if (jRadioButtons[1].isSelected()) {
-                jList.setVisibleRowCount(jList.getComponentCount()-1);
+                jList.setVisibleRowCount(jList.getComponentCount() - 1);
                 jList.setLayoutOrientation(JList.HORIZONTAL_WRAP);
             } else if (jRadioButtons[2].isSelected()) {
-                jList.setVisibleRowCount(jList.getComponentCount()-1);
+                jList.setVisibleRowCount(jList.getComponentCount() - 1);
                 jList.setLayoutOrientation(JList.VERTICAL);
             }
 

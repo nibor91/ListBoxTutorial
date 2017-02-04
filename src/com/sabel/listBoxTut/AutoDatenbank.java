@@ -29,7 +29,7 @@ public class AutoDatenbank {
     public Auto removeAuto(Auto auto) {
         Iterator<Auto> iterator = autos.iterator();
         while (iterator.hasNext()) {
-            Auto x =  iterator.next();
+            Auto x = iterator.next();
             if (x.getFahrgestellnummer().equals(auto.getFahrgestellnummer())) {
 
                 iterator.remove();
@@ -40,8 +40,8 @@ public class AutoDatenbank {
     }
 
     public void generateTestdaten(int anzahl) {
-        for (int i = 0 ; i < anzahl ; i++) {
-            autos.add(new Auto("" + i + 2 * i + 24 + i * i + "-" + i,"M:UC-"+i));
+        for (int i = 0; i < anzahl; i++) {
+            autos.add(new Auto("" + i + 2 * i + 24 + i * i + "-" + i, "M:UC-" + i));
         }
     }
 }
