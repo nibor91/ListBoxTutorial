@@ -60,12 +60,12 @@ public class Fenster extends JFrame {
         header = new JLabel(" ");
         c = getContentPane();
         autoDatenbank = new AutoDatenbank();
-        modelBefuellen();
+        befuellen();
         jList = new JList(autoDatenbank.getAutoObjekte());
         jScrollPane = new JScrollPane(jList);
     }
 
-    private void modelBefuellen() {
+    private void befuellen() {
         autoDatenbank.generateTestdaten(33);
     }
 

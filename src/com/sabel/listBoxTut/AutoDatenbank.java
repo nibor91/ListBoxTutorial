@@ -31,7 +31,6 @@ public class AutoDatenbank {
         while (iterator.hasNext()) {
             Auto x = iterator.next();
             if (x.getFahrgestellnummer().equals(auto.getFahrgestellnummer())) {
-
                 iterator.remove();
                 return x;
             }
