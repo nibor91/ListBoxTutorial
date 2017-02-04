@@ -16,7 +16,8 @@ public class Fenster extends JFrame {
     private JPanel jPanelEast;
     private JList jList;
     private JScrollPane jScrollPane;
-    private  AutoDatenbank autoDatenbank;
+    private AutoDatenbank autoDatenbank;
+    private DefaultListModel<Auto> autoListModel;
 
     public Fenster() throws HeadlessException {
         initComponents();
@@ -28,10 +29,12 @@ public class Fenster extends JFrame {
         jPanelWest = new JPanel();
         jPanelEast = new JPanel();
         jPanelSouth = new JPanel();
+        autoListModel = new DefaultListModel<>();
         c = getContentPane();
         autoDatenbank = new AutoDatenbank();
         autoDatenbank.generateTestdaten(33);
-        jList = new JList(autoDatenbank.getAutoObjekte());
+        jList = new JList(autoListModel);
+        modelBefuellen();
         jScrollPane = new JScrollPane(jList);
         jScrollPane.setPreferredSize(new Dimension(250, 250));
         c.add(jPanelCenter);
@@ -41,5 +44,11 @@ public class Fenster extends JFrame {
         pack();
         setVisible(true);
 
+    }
+
+    private void modelBefuellen() {
+        for (Auto a : autoDatenbank.getAutoListe()) {
+            autoListModel.addElement(a);
+        }
     }
 }
