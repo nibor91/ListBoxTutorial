@@ -91,12 +91,14 @@ public class Fenster extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 if (jList.getSelectedIndex() > -1)
+                    while (jList.getSelectedIndex()> -1)
                     autoDatenbank.removeAuto(autoListModel.remove(jList.getSelectedIndex()));
             }
         });
         jList.addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
+
                 if (jList.getSelectedIndex() > -1) {
                     System.out.println(jList.getSelectedIndex());
                     header.setText("Kennzeichen: " + autoListModel.get(jList.getSelectedIndex()).getKennzeichen() + "Fahrgestellnummer: " + autoListModel.get(jList.getSelectedIndex()).getFahrgestellnummer());
@@ -125,7 +127,7 @@ public class Fenster extends JFrame {
         jPanelEast.add(jpOrder);
         jpSelect.setBorder(new LineBorder(Color.black));
         jpOrder.setBorder(new LineBorder(Color.black));
-        jpSelect.setSize(jpOrder.getWidth(), jpOrder.getHeight());
+
         jPanelEast.add(jpSelect);
         jPanelCenter.add(jScrollPane);
         jPanelSouth.add(jbtnDelet);
