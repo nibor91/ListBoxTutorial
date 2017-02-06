@@ -2,8 +2,8 @@ Handout
 
 list = new JList(data); //data has type Object[]
 
-list.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 list.setSelectionMode(SINGLE_SELECTION);
+list.setSelectionMode(ListSelectionModel.SINGLE_INTERVAL_SELECTION);
 list.setSelectionMode(MULTIPLE_INTERVAL_SELECTION);
 
 list.setLayoutOrientation(JList.HORIZONTAL_WRAP);
