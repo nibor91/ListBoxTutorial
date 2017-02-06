@@ -26,3 +26,7 @@ list.addListSelectionListener(new ListSelectionListener() {...});<br>
 <b>Hinzufügen und entfernen</b><br>
 listModel.remove(list.getSelectedIndex());<br>
 listModel.addElement(ELEMENT);<br>
+listModel.add(position,ELEMENT);<br>
+<b>Auswahl auslesen</b><br>
+list.getSelectedIndex() ==> gibt niedrigsten Index der ausgewählt wurde oder -1 <br>
+list.getSelectedIndices() ==> gibt jeden ausgewählten Index in einem array zurück<br>
