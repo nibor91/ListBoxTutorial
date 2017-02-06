@@ -125,10 +125,10 @@ public class Fenster extends JFrame {
         jpSelect.add(jRadioButtons[4]);
         jpSelect.add(jRadioButtons[5]);
         jPanelEast.add(jpOrder);
-        jpSelect.setBorder(new LineBorder(Color.black));
-        jpOrder.setBorder(new LineBorder(Color.black));
+        //jpSelect.setBorder(new LineBorder(Color.black));
+        //jpOrder.setBorder(new LineBorder(Color.black));
 
-        jPanelEast.add(jpSelect);
+        jPanelWest.add(jpSelect);
         jPanelCenter.add(jScrollPane);
         jPanelSouth.add(jbtnDelet);
         jPanelNorth.add(header);
@@ -136,6 +136,7 @@ public class Fenster extends JFrame {
         c.add(jPanelCenter);
         c.add(jPanelNorth, BorderLayout.NORTH);
         c.add(jPanelSouth, BorderLayout.SOUTH);
+        c.add(jPanelWest, BorderLayout.WEST);
     }
 
     private class MeinActionListener implements ItemListener {

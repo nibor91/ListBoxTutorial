@@ -6,6 +6,6 @@ package com.sabel.listBoxTut;
 public class Main {
     public static void main(String[] args) {
 
-        new GrundFenster();
+        new Fenster();
     }
 }
